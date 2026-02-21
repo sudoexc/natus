@@ -288,8 +288,8 @@ export default function NatusLanding() {
         <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ padding: "48px 20px" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: 0 }}>
-              {T.stats.map(s => (
-                <motion.div key={s.label} variants={fadeUp} style={{ textAlign: "center", padding: "16px 12px" }}>
+              {T.stats.map((s, i) => (
+                <motion.div key={i} variants={fadeUp} style={{ textAlign: "center", padding: "16px 12px" }}>
                   <p style={{ fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 900, color: "#F5C100", lineHeight: 1 }}>{s.val}</p>
                   <p style={{ fontSize: 11, color: "#444", marginTop: 6, fontWeight: 500 }}>{s.label}</p>
                 </motion.div>
@@ -315,7 +315,7 @@ export default function NatusLanding() {
               {T.modules.items.map((mod, idx) => {
                 const Icon = moduleIcons[idx];
                 return (
-                  <motion.div key={mod.title} variants={fadeUp} className={`n-card n-card-glow ${idx === 0 ? "n-card-featured" : ""}`} style={{ padding: "26px 24px" }}>
+                  <motion.div key={idx} variants={fadeUp} className={`n-card n-card-glow ${idx === 0 ? "n-card-featured" : ""}`} style={{ padding: "26px 24px" }}>
                     <div style={{ width: 42, height: 42, borderRadius: 12, background: "rgba(245,193,0,0.07)", border: "1px solid rgba(245,193,0,0.14)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
                       <Icon size={19} color="#F5C100" />
                     </div>
@@ -349,7 +349,7 @@ export default function NatusLanding() {
               {T.why.items.map((item, i) => {
                 const Icon = whyIcons[i];
                 return (
-                  <motion.div key={item.title} variants={fadeUp} className="n-card n-card-glow" style={{ padding: "32px 24px", textAlign: "center" }}>
+                  <motion.div key={i} variants={fadeUp} className="n-card n-card-glow" style={{ padding: "32px 24px", textAlign: "center" }}>
                     <div style={{ width: 52, height: 52, borderRadius: 14, margin: "0 auto 20px", background: "rgba(245,193,0,0.08)", border: "1px solid rgba(245,193,0,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <Icon size={22} color="#F5C100" />
                     </div>
@@ -381,8 +381,8 @@ export default function NatusLanding() {
                   {T.finance.sub}
                 </motion.p>
                 <motion.ul variants={stagger} style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                  {T.finance.items.map(item => (
-                    <motion.li key={item} variants={fadeUp} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "#777" }}>
+                  {T.finance.items.map((item, _i) => (
+                    <motion.li key={_i} variants={fadeUp} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "#777" }}>
                       <CheckCircle2 size={14} color="#F5C100" style={{ flexShrink: 0, marginTop: 2 }} />
                       {item}
                     </motion.li>
@@ -475,8 +475,8 @@ export default function NatusLanding() {
                   {T.reports.sub}
                 </motion.p>
                 <motion.ul variants={stagger} style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                  {T.reports.items.map(item => (
-                    <motion.li key={item} variants={fadeUp} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "#777" }}>
+                  {T.reports.items.map((item, _i) => (
+                    <motion.li key={_i} variants={fadeUp} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "#777" }}>
                       <CheckCircle2 size={14} color="#F5C100" style={{ flexShrink: 0, marginTop: 2 }} />
                       {item}
                     </motion.li>
@@ -504,8 +504,8 @@ export default function NatusLanding() {
               {[
                 { title: T.roles.admin, features: T.roles.adminFeatures, primary: true, Icon: Shield },
                 { title: T.roles.manager, features: T.roles.managerFeatures, primary: false, Icon: UserCheck },
-              ].map(role => (
-                <motion.div key={role.title} variants={fadeUp} className={`n-card ${role.primary ? "n-card-featured" : ""}`} style={{ padding: "28px 24px", border: role.primary ? "1px solid rgba(245,193,0,0.22)" : "1px solid #191919", boxShadow: role.primary ? "0 0 60px rgba(245,193,0,0.04)" : "none" }}>
+              ].map((role, ri) => (
+                <motion.div key={ri} variants={fadeUp} className={`n-card ${role.primary ? "n-card-featured" : ""}`} style={{ padding: "28px 24px", border: role.primary ? "1px solid rgba(245,193,0,0.22)" : "1px solid #191919", boxShadow: role.primary ? "0 0 60px rgba(245,193,0,0.04)" : "none" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
                     <div style={{ width: 38, height: 38, borderRadius: 10, background: role.primary ? "rgba(245,193,0,0.1)" : "#121212", border: role.primary ? "1px solid rgba(245,193,0,0.2)" : "1px solid #222", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <role.Icon size={16} color={role.primary ? "#F5C100" : "#444"} />
@@ -513,8 +513,8 @@ export default function NatusLanding() {
                     <h3 style={{ fontSize: 16, fontWeight: 800, color: role.primary ? "#F5C100" : "#fff" }}>{role.title}</h3>
                   </div>
                   <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 9 }}>
-                    {role.features.map(f => (
-                      <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#777" }}>
+                    {role.features.map((f, fi) => (
+                      <li key={fi} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#777" }}>
                         <ChevronRight size={12} color={role.primary ? "#F5C100" : "#2a2a2a"} style={{ flexShrink: 0, marginTop: 3 }} />
                         {f}
                       </li>
