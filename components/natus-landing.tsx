@@ -712,8 +712,7 @@ export default function NatusLanding() {
               <a href="#" style={{ fontSize: 20, fontWeight: 900, letterSpacing: "-0.05em" }}>
                 <span style={{ color: "#F5C100" }}>N</span>atus
               </a>
-              <p style={{ fontSize: 12, color: "#2a2a2a", textAlign: "center", fontWeight: 500 }}>React · Django · PostgreSQL</p>
-              <p style={{ fontSize: 12, color: "#2a2a2a", fontWeight: 500 }} className="sm:text-right">© 2025 Natus</p>
+<p style={{ fontSize: 12, color: "#2a2a2a", fontWeight: 500 }} className="sm:text-right">© 2025 Natus</p>
             </div>
           </div>
         </footer>
