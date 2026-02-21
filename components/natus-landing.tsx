@@ -168,13 +168,13 @@ function FakeDashboard() {
       {/* Finance bar */}
       <div style={{ borderTop: "1px solid #191919", padding: "10px 16px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6 }}>
         {[
-          { label: "Приходы", value: "8.4M", color: "#22c55e" },
-          { label: "Расходы", value: "2.1M", color: "#ef4444" },
-          { label: "Нетто", value: "6.3M", color: "#F5C100" },
+          { label: "Приходы", value: "84M", color: "#22c55e" },
+          { label: "Расходы", value: "21M", color: "#ef4444" },
+          { label: "Нетто", value: "63M", color: "#F5C100" },
         ].map(item => (
           <div key={item.label}>
             <p style={{ fontSize: 8, color: "#333", marginBottom: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</p>
-            <p style={{ fontSize: 13, fontWeight: 800, color: item.color }}>{item.value} ₸</p>
+            <p style={{ fontSize: 13, fontWeight: 800, color: item.color }}>{item.value} сум</p>
           </div>
         ))}
       </div>
@@ -497,7 +497,7 @@ export default function NatusLanding() {
                           <p style={{ fontSize: 10, color: "#333" }}>Баланс</p>
                         </div>
                         <div style={{ textAlign: "right" }}>
-                          <p style={{ fontSize: 14, fontWeight: 800, color: "#F5C100", marginBottom: 2 }}>{cash.balance} ₸</p>
+                          <p style={{ fontSize: 14, fontWeight: 800, color: "#F5C100", marginBottom: 2 }}>{cash.balance} сум</p>
                           <p style={{ fontSize: 10, color: cash.up ? "#22c55e" : "#ef4444" }}>{cash.delta}</p>
                         </div>
                       </div>
@@ -506,8 +506,8 @@ export default function NatusLanding() {
 
                   <div style={{ marginTop: 14, padding: 14, background: "rgba(245,193,0,0.03)", border: "1px solid rgba(245,193,0,0.1)", borderRadius: 10 }}>
                     {[
-                      { label: "↑ Приходы", value: "8 400 000 ₸", color: "#22c55e" },
-                      { label: "↓ Расходы", value: "2 100 000 ₸", color: "#ef4444" },
+                      { label: "↑ Приходы", value: "84 000 000 сум", color: "#22c55e" },
+                      { label: "↓ Расходы", value: "21 000 000 сум", color: "#ef4444" },
                     ].map(row => (
                       <div key={row.label} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
                         <span style={{ fontSize: 12, color: "#444" }}>{row.label}</span>
@@ -517,7 +517,7 @@ export default function NatusLanding() {
                     <div style={{ height: 1, background: "#191919", margin: "10px 0" }} />
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                       <span style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>= Нетто</span>
-                      <span style={{ fontSize: 13, fontWeight: 900, color: "#F5C100" }}>6 300 000 ₸</span>
+                      <span style={{ fontSize: 13, fontWeight: 900, color: "#F5C100" }}>63 000 000 сум</span>
                     </div>
                   </div>
                 </div>
@@ -539,10 +539,10 @@ export default function NatusLanding() {
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: "#333", textTransform: "uppercase", marginBottom: 12 }}>KPI — текущий месяц</p>
                   <div className="grid grid-cols-2" style={{ gap: 6, marginBottom: 18 }}>
                     {[
-                      { label: "Выручка", value: "42M ₸", up: true },
+                      { label: "Выручка", value: "420M сум", up: true },
                       { label: "Загрузка", value: "87%", up: true },
-                      { label: "ADR", value: "65 000 ₸", up: false },
-                      { label: "RevPAR", value: "56 550 ₸", up: true },
+                      { label: "ADR", value: "650 000 сум", up: false },
+                      { label: "RevPAR", value: "565 500 сум", up: true },
                     ].map(kpi => (
                       <div key={kpi.label} style={{ background: "#121212", border: "1px solid #191919", borderRadius: 10, padding: "12px 14px" }}>
                         <p style={{ fontSize: 10, color: "#333", marginBottom: 5 }}>{kpi.label}</p>

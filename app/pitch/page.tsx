@@ -127,9 +127,9 @@ function Slide4() {
           <p style={{ fontSize: 12, color: "#444", marginBottom: 16, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Текущий месяц</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
-              { label: "Доходы", value: "12.4M ₸", color: "#22c55e", pct: 80 },
-              { label: "Расходы", value: "3.1M ₸", color: "#ef4444", pct: 25 },
-              { label: "Нетто", value: "9.3M ₸", color: "#F5C100", pct: 60 },
+              { label: "Доходы", value: "124M сум", color: "#22c55e", pct: 80 },
+              { label: "Расходы", value: "31M сум", color: "#ef4444", pct: 25 },
+              { label: "Нетто", value: "93M сум", color: "#F5C100", pct: 60 },
             ].map(({ label, value, color, pct }) => (
               <div key={label}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
@@ -150,7 +150,7 @@ function Slide4() {
           style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {[
             { label: "Заполняемость", value: "87%", sub: "выше среднего по рынку" },
-            { label: "Средний чек", value: "42K ₸", sub: "за ночь / номер" },
+            { label: "Средний чек", value: "420K сум", sub: "за ночь / номер" },
             { label: "Активных гостей", value: "24", sub: "прямо сейчас" },
           ].map(({ label, value, sub }, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }}
