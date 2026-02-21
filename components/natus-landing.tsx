@@ -210,7 +210,7 @@ export default function NatusLanding() {
   }, [menuOpen]);
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "100vh", overflowX: "hidden" }}>
       {/* Noise */}
       <div className="noise" />
 
