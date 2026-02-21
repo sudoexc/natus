@@ -347,21 +347,6 @@ export default function NatusLanding() {
           </div>
         </section>
 
-        {/* ── TRUSTED BY ────────────────────────────────────────────────────── */}
-        <div className="section-line" />
-        <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
-          style={{ padding: "40px 20px", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
-            <motion.p variants={fadeUp} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.18em", color: "#333", textTransform: "uppercase", marginBottom: 20 }}>
-              Нам доверяют отели
-            </motion.p>
-            <motion.div variants={fadeUp} style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap", opacity: 0.4 }}>
-              {trustedBy.map(name => (
-                <span key={name} style={{ fontSize: 14, fontWeight: 700, color: "#444", letterSpacing: "-0.02em", whiteSpace: "nowrap" }}>{name}</span>
-              ))}
-            </motion.div>
-          </div>
-        </motion.section>
         <div className="section-line" />
 
         {/* ── STATS ─────────────────────────────────────────────────────────── */}
