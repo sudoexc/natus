@@ -692,13 +692,11 @@ export default function NatusLanding() {
         {/* ── FOOTER ────────────────────────────────────────────────────────── */}
         <div className="section-line" />
         <footer style={{ padding: "32px 20px" }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: 16, alignItems: "center" }}>
-              <a href="#" style={{ fontSize: 20, fontWeight: 900, letterSpacing: "-0.05em" }}>
-                <span style={{ color: "#F5C100" }}>N</span>atus
-              </a>
-<p style={{ fontSize: 12, color: "#2a2a2a", fontWeight: 500, marginLeft: "auto" }}>© 2025 Natus</p>
-            </div>
+          <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 20, fontWeight: 900, letterSpacing: "-0.05em" }}>
+              <span style={{ color: "#F5C100" }}>N</span>atus
+            </span>
+            <p style={{ fontSize: 12, color: "#2a2a2a", fontWeight: 500 }}>© 2025 Natus</p>
           </div>
         </footer>
 
