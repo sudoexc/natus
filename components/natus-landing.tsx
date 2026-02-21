@@ -241,14 +241,14 @@ export default function NatusLanding() {
           <div className="hero-grid" />
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px", position: "relative" }}>
             <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 48, alignItems: "center", minHeight: "calc(100vh - 100px)", paddingBottom: 60 }}>
-              <motion.div initial="hidden" animate="visible" variants={stagger}>
+              <motion.div initial="hidden" animate="visible" variants={stagger} style={{ minWidth: 0 }}>
                 <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(245,193,0,0.07)", border: "1px solid rgba(245,193,0,0.18)", borderRadius: 99, padding: "7px 16px", fontSize: 12, fontWeight: 700, color: "#F5C100" }}>
                     <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#F5C100", display: "inline-block" }} className="dot-live" />
                     Hotel Management System
                   </span>
                 </motion.div>
-                <motion.h1 variants={fadeUp} style={{ fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)", fontWeight: 900, lineHeight: 0.95, marginBottom: 28 }}>
+                <motion.h1 variants={fadeUp} style={{ fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)", fontWeight: 900, lineHeight: 0.95, marginBottom: 28, wordBreak: "break-word" }}>
                   <span className="y-text-glow">{T.hero.heading1}</span><br />
                   {T.hero.heading2}<br />
                   <span className="y-text">{T.hero.heading3}</span>
