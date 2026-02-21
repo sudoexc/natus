@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" }
 
 export const metadata: Metadata = {
   title: "Natus — Hotel Management System",
-  description: "Natus — система управления отелем. Номера, проживания, финансы, аналитика. React + Django + PostgreSQL.",
+  description: "Natus — система управления отелем. Номера, проживания, финансы, аналитика.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
