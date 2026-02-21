@@ -203,7 +203,7 @@ export default function NatusLanding() {
             </a>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="md:hidden">
+          <div className="flex md:hidden items-center" style={{ gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", background: "#111", border: "1px solid #222", borderRadius: 8, padding: 2 }}>
               <LangBtn lang="ru" current={lang} set={setLang} />
               <LangBtn lang="uz" current={lang} set={setLang} />
