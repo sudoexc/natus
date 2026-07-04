@@ -3,12 +3,12 @@ export type Lang = "ru" | "uz";
 export const landing = {
   ru: {
     nav: {
-      features: "Возможности", why: "Почему Natus", finance: "Финансы", reports: "Отчёты", demo: "Запросить демо",
+      features: "Возможности", why: "Почему Natus", finance: "Финансы", reports: "Отчёты", pricing: "Цены", demo: "Начать бесплатно",
     },
     hero: {
       heading1: "Управляй", heading2: "отелем", heading3: "без хаоса.",
       sub: "Номера, проживания, финансы, аналитика и команда — всё в одном месте. Работает из коробки.",
-      demo: "Запросить демо", features: "Возможности",
+      register: "Зарегистрировать отель", demo: "Попробовать демо", features: "Возможности",
       pills: ["Анти-овербукинг", "RU / UZ", "Ролевой доступ"],
     },
     stats: [
@@ -65,21 +65,32 @@ export const landing = {
       adminFeatures: ["Все операции с данными", "Полные отчёты и аналитика", "Управление пользователями", "Создание и удаление касс", "Редактирование в закрытом месяце", "Видит расходы всех сотрудников"],
       managerFeatures: ["Все операции с данными", "Чек-ин и чек-аут", "Приём платежей от гостей", "Добавление расходов", "Видит только свои расходы", "Нет доступа к отчётам"],
     },
+    pricing: {
+      label: "Цены", heading1: "Простые тарифы —", heading2: "без сюрпризов",
+      featured: "Популярный", period: "сум/мес", cta: "Начать бесплатно",
+      note: "Первый месяц — бесплатно. Без карты.",
+      plans: [
+        { name: "Старт", price: "299 000", features: ["До 10 номеров", "2 пользователя", "Все модули", "Telegram-отчёты"] },
+        { name: "Стандарт", price: "499 000", features: ["До 30 номеров", "5 пользователей", "Всё из «Старт»", "Приоритетная поддержка"] },
+        { name: "Про", price: "899 000", features: ["Без лимита номеров", "Безлимит пользователей", "Всё из «Стандарт»", "Внедрение под ключ"] },
+      ],
+    },
     cta: {
       badge: "Для малых и средних отелей",
       heading1: "Готовы навести", heading2: "порядок в отеле?",
       sub: "Покажем Natus в действии на реальных данных вашего отеля.",
-      button: "Написать в Telegram",
+      primary: "Создать отель бесплатно",
+      button: "Или напишите нам в Telegram",
     },
   },
   uz: {
     nav: {
-      features: "Imkoniyatlar", why: "Nega Natus", finance: "Moliya", reports: "Hisobotlar", demo: "Demo so'rash",
+      features: "Imkoniyatlar", why: "Nega Natus", finance: "Moliya", reports: "Hisobotlar", pricing: "Narxlar", demo: "Bepul boshlash",
     },
     hero: {
       heading1: "Mehmonxonani", heading2: "professional", heading3: "boshqaring.",
       sub: "Xonalar, yashash, moliya, tahlil va jamoa — hammasi bitta joyda. Quticha ichida ishlaydi.",
-      demo: "Demo so'rash", features: "Imkoniyatlar",
+      register: "Mehmonxonani ro'yxatdan o'tkazish", demo: "Demo ko'rish", features: "Imkoniyatlar",
       pills: ["Anti-overbooking", "RU / UZ", "Rol asosida kirish"],
     },
     stats: [
@@ -136,11 +147,22 @@ export const landing = {
       adminFeatures: ["Barcha ma'lumotlar bilan operatsiyalar", "To'liq hisobotlar va tahlil", "Foydalanuvchilarni boshqarish", "Kassalarni yaratish va o'chirish", "Yopiq oyda tahrirlash", "Barcha xodimlar xarajatlarini ko'rish"],
       managerFeatures: ["Barcha ma'lumotlar bilan operatsiyalar", "Chek-in va chek-out", "Mehmonlardan to'lovlarni qabul qilish", "Xarajatlar qo'shish", "Faqat o'z xarajatlarini ko'radi", "Hisobotlarga kirish yo'q"],
     },
+    pricing: {
+      label: "Narxlar", heading1: "Oddiy tariflar —", heading2: "kutilmagan xarajatlarsiz",
+      featured: "Ommabop", period: "so'm/oy", cta: "Bepul boshlash",
+      note: "Birinchi oy — bepul. Kartasiz.",
+      plans: [
+        { name: "Start", price: "299 000", features: ["10 tagacha xona", "2 foydalanuvchi", "Barcha modullar", "Telegram-hisobotlar"] },
+        { name: "Standart", price: "499 000", features: ["30 tagacha xona", "5 foydalanuvchi", "«Start»dagi hammasi", "Ustuvor qo'llab-quvvatlash"] },
+        { name: "Pro", price: "899 000", features: ["Xonalar soni cheklanmagan", "Cheksiz foydalanuvchi", "«Standart»dagi hammasi", "To'liq joriy etish"] },
+      ],
+    },
     cta: {
       badge: "Kichik va o'rta mehmonxonalar uchun",
       heading1: "Mehmonxonangizda", heading2: "tartib o'rnatishga tayyormisiz?",
       sub: "Natus'ni mehmonxonangiz real ma'lumotlari asosida ko'rsatamiz.",
-      button: "Telegramga yozish",
+      primary: "Mehmonxonani bepul yarating",
+      button: "Yoki bizga Telegramda yozing",
     },
   },
 };

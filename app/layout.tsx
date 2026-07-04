@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               operatingSystem: "Web",
               url,
               description,
-              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              offers: { "@type": "Offer", price: "299000", priceCurrency: "UZS" },
               author: { "@type": "Organization", name: "Natus", url },
             }),
           }}

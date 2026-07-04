@@ -10,6 +10,14 @@ import {
 } from "lucide-react";
 import { landing, type Lang } from "@/lib/i18n";
 
+// ── CONFIG ── правь тут ──────────────────────────────────────────
+const CONFIG = {
+  appUrl: "https://app.natus.uz",            // TODO: реальный URL после деплоя
+  registerUrl: "https://app.natus.uz/register",
+  demoUrl: "https://app.natus.uz/login",     // TODO: demo-аккаунт
+  telegram: "https://t.me/sqd_dev",
+};
+
 // ─── ANIMATIONS ───────────────────────────────────────────────────────────────
 
 const fadeUp = {
@@ -135,10 +143,21 @@ function LangBtn({ lang, current, set }: { lang: Lang; current: Lang; set: (l: L
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 export default function NatusLanding() {
-  const [lang, setLang] = useState<Lang>("ru");
+  const [lang, setLangState] = useState<Lang>("ru");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const T = landing[lang];
+
+  // язык: читаем из localStorage после маунта (SSR-safe), сохраняем при переключении
+  useEffect(() => {
+    const saved = localStorage.getItem("natus-lang");
+    if (saved === "ru" || saved === "uz") setLangState(saved);
+  }, []);
+
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    try { localStorage.setItem("natus-lang", l); } catch { /* private mode etc. */ }
+  };
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24);
@@ -156,6 +175,7 @@ export default function NatusLanding() {
     ["#почему", T.nav.why],
     ["#финансы", T.nav.finance],
     ["#отчёты", T.nav.reports],
+    ["#цены", T.nav.pricing],
   ];
 
   return (
@@ -198,7 +218,7 @@ export default function NatusLanding() {
               <LangBtn lang="ru" current={lang} set={setLang} />
               <LangBtn lang="uz" current={lang} set={setLang} />
             </div>
-            <a href="#cta" className="btn-y" style={{ padding: "9px 20px", fontSize: 13, borderRadius: 10 }}>
+            <a href={CONFIG.registerUrl} target="_blank" rel="noreferrer" className="btn-y" style={{ padding: "9px 20px", fontSize: 13, borderRadius: 10 }}>
               {T.nav.demo} <ArrowRight size={13} />
             </a>
           </div>
@@ -225,7 +245,7 @@ export default function NatusLanding() {
                   {label}
                 </a>
               ))}
-              <a href="#cta" onClick={() => setMenuOpen(false)} className="btn-y"
+              <a href={CONFIG.registerUrl} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)} className="btn-y"
                 style={{ marginTop: 16, width: "100%", textAlign: "center", padding: "14px 0" }}>
                 {T.nav.demo} <ArrowRight size={14} />
               </a>
@@ -257,11 +277,11 @@ export default function NatusLanding() {
                   {T.hero.sub}
                 </motion.p>
                 <motion.div variants={fadeUp} style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <a href="#cta" className="btn-y y-glow" style={{ fontSize: "clamp(14px, 2vw, 16px)" }}>
-                    {T.hero.demo} <ArrowRight size={16} />
+                  <a href={CONFIG.registerUrl} target="_blank" rel="noreferrer" className="btn-y y-glow" style={{ fontSize: "clamp(14px, 2vw, 16px)" }}>
+                    {T.hero.register} <ArrowRight size={16} />
                   </a>
-                  <a href="#возможности" className="btn-o" style={{ fontSize: "clamp(14px, 2vw, 16px)" }}>
-                    {T.hero.features}
+                  <a href={CONFIG.demoUrl} target="_blank" rel="noreferrer" className="btn-o" style={{ fontSize: "clamp(14px, 2vw, 16px)" }}>
+                    {T.hero.demo}
                   </a>
                 </motion.div>
                 <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, marginTop: 40, flexWrap: "wrap" }}>
@@ -488,6 +508,59 @@ export default function NatusLanding() {
         </section>
         <div className="section-line" />
 
+        {/* ── PRICING ───────────────────────────────────────────────────────── */}
+        {/* NB: цены черновые, согласовать с Javohir */}
+        <section id="цены" style={{ padding: "80px 20px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: "center", marginBottom: 52 }}>
+              <motion.p variants={fadeUp} style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#F5C100", textTransform: "uppercase", marginBottom: 14 }}>
+                {T.pricing.label}
+              </motion.p>
+              <motion.h2 variants={fadeUp} style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1 }}>
+                {T.pricing.heading1}<br /><span className="y-text">{T.pricing.heading2}</span>
+              </motion.h2>
+            </motion.div>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
+              className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 12, maxWidth: 960, margin: "0 auto" }}>
+              {T.pricing.plans.map((plan, pi) => {
+                const featured = pi === 1;
+                return (
+                  <motion.div key={pi} variants={fadeUp} className={`n-card n-card-glow ${featured ? "n-card-featured" : ""}`}
+                    style={{ padding: "32px 24px", display: "flex", flexDirection: "column", position: "relative", border: featured ? "1px solid rgba(245,193,0,0.22)" : "1px solid #191919", boxShadow: featured ? "0 0 60px rgba(245,193,0,0.04)" : "none" }}>
+                    {featured && (
+                      <span style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: "#F5C100", color: "#000", fontSize: 10, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", borderRadius: 99, padding: "4px 14px", whiteSpace: "nowrap" }}>
+                        {T.pricing.featured}
+                      </span>
+                    )}
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: featured ? "#F5C100" : "#fff", marginBottom: 14 }}>{plan.name}</h3>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 22 }}>
+                      <span style={{ fontSize: "clamp(1.6rem, 3vw, 2rem)", fontWeight: 900, color: "#fff", lineHeight: 1 }}>{plan.price}</span>
+                      <span style={{ fontSize: 12, color: "#444", fontWeight: 600 }}>{T.pricing.period}</span>
+                    </div>
+                    <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 9, marginBottom: 26, flex: 1 }}>
+                      {plan.features.map((f, fi) => (
+                        <li key={fi} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: "#777" }}>
+                          <CheckCircle2 size={13} color="#F5C100" style={{ flexShrink: 0, marginTop: 2 }} />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href={CONFIG.registerUrl} target="_blank" rel="noreferrer" className={featured ? "btn-y" : "btn-o"}
+                      style={{ width: "100%", textAlign: "center", justifyContent: "center", fontSize: 14, padding: "12px 0" }}>
+                      {T.pricing.cta} <ArrowRight size={14} />
+                    </a>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              style={{ textAlign: "center", marginTop: 28, fontSize: 13, color: "#555", fontWeight: 600 }}>
+              {T.pricing.note}
+            </motion.p>
+          </div>
+        </section>
+        <div className="section-line" />
+
         {/* ── ROLES ─────────────────────────────────────────────────────────── */}
         <section id="роли" style={{ padding: "80px 20px" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -542,9 +615,12 @@ export default function NatusLanding() {
               <motion.p variants={fadeUp} style={{ fontSize: "clamp(15px, 2.5vw, 18px)", color: "#555", lineHeight: 1.75, marginBottom: 44 }}>
                 {T.cta.sub}
               </motion.p>
-              <motion.div variants={fadeUp}>
-                <a href="https://t.me/sqd_dev" target="_blank" rel="noreferrer" className="btn-y y-glow" style={{ fontSize: "clamp(14px, 2vw, 16px)", padding: "16px 32px" }}>
-                  {T.cta.button} <ArrowRight size={16} />
+              <motion.div variants={fadeUp} style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                <a href={CONFIG.registerUrl} target="_blank" rel="noreferrer" className="btn-y y-glow" style={{ fontSize: "clamp(14px, 2vw, 16px)", padding: "16px 32px" }}>
+                  {T.cta.primary} <ArrowRight size={16} />
+                </a>
+                <a href={CONFIG.telegram} target="_blank" rel="noreferrer" className="btn-o" style={{ fontSize: "clamp(14px, 2vw, 16px)", padding: "16px 32px" }}>
+                  {T.cta.button}
                 </a>
               </motion.div>
             </motion.div>
