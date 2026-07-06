@@ -1,3 +1,6 @@
+// Тарифы — единственный источник цен для лендинга и питча.
+export const PRICES = { start: "299 000", standard: "499 000", pro: "899 000" };
+
 export type Lang = "ru" | "uz";
 
 export const landing = {
@@ -8,7 +11,7 @@ export const landing = {
     hero: {
       heading1: "Управляй", heading2: "отелем", heading3: "без хаоса.",
       sub: "Номера, проживания, финансы, аналитика и команда — всё в одном месте. Работает из коробки.",
-      register: "Зарегистрировать отель", demo: "Попробовать демо", features: "Возможности",
+      register: "Зарегистрировать отель", demo: "Попробовать демо",
       pills: ["Анти-овербукинг", "RU / UZ", "Ролевой доступ"],
     },
     stats: [
@@ -70,9 +73,9 @@ export const landing = {
       featured: "Популярный", period: "сум/мес", cta: "Начать бесплатно",
       note: "Первый месяц — бесплатно. Без карты.",
       plans: [
-        { name: "Старт", price: "299 000", features: ["До 10 номеров", "2 пользователя", "Все модули", "Telegram-отчёты"] },
-        { name: "Стандарт", price: "499 000", features: ["До 30 номеров", "5 пользователей", "Всё из «Старт»", "Приоритетная поддержка"] },
-        { name: "Про", price: "899 000", features: ["Без лимита номеров", "Безлимит пользователей", "Всё из «Стандарт»", "Внедрение под ключ"] },
+        { name: "Старт", price: PRICES.start, features: ["До 10 номеров", "2 пользователя", "Все модули", "Telegram-отчёты"] },
+        { name: "Стандарт", price: PRICES.standard, features: ["До 30 номеров", "5 пользователей", "Всё из «Старт»", "Приоритетная поддержка"] },
+        { name: "Про", price: PRICES.pro, features: ["Без лимита номеров", "Безлимит пользователей", "Всё из «Стандарт»", "Внедрение под ключ"] },
       ],
     },
     cta: {
@@ -90,7 +93,7 @@ export const landing = {
     hero: {
       heading1: "Mehmonxonani", heading2: "professional", heading3: "boshqaring.",
       sub: "Xonalar, yashash, moliya, tahlil va jamoa — hammasi bitta joyda. Quticha ichida ishlaydi.",
-      register: "Mehmonxonani ro'yxatdan o'tkazish", demo: "Demo ko'rish", features: "Imkoniyatlar",
+      register: "Mehmonxonani ro'yxatdan o'tkazish", demo: "Demo ko'rish",
       pills: ["Anti-overbooking", "RU / UZ", "Rol asosida kirish"],
     },
     stats: [
@@ -152,9 +155,9 @@ export const landing = {
       featured: "Ommabop", period: "so'm/oy", cta: "Bepul boshlash",
       note: "Birinchi oy — bepul. Kartasiz.",
       plans: [
-        { name: "Start", price: "299 000", features: ["10 tagacha xona", "2 foydalanuvchi", "Barcha modullar", "Telegram-hisobotlar"] },
-        { name: "Standart", price: "499 000", features: ["30 tagacha xona", "5 foydalanuvchi", "«Start»dagi hammasi", "Ustuvor qo'llab-quvvatlash"] },
-        { name: "Pro", price: "899 000", features: ["Xonalar soni cheklanmagan", "Cheksiz foydalanuvchi", "«Standart»dagi hammasi", "To'liq joriy etish"] },
+        { name: "Start", price: PRICES.start, features: ["10 tagacha xona", "2 foydalanuvchi", "Barcha modullar", "Telegram-hisobotlar"] },
+        { name: "Standart", price: PRICES.standard, features: ["30 tagacha xona", "5 foydalanuvchi", "«Start»dagi hammasi", "Ustuvor qo'llab-quvvatlash"] },
+        { name: "Pro", price: PRICES.pro, features: ["Xonalar soni cheklanmagan", "Cheksiz foydalanuvchi", "«Standart»dagi hammasi", "To'liq joriy etish"] },
       ],
     },
     cta: {
@@ -217,15 +220,15 @@ export const pitch = {
       cols: [
         { title: "Excel и тетрадь", sub: "большинство отелей", points: ["Бесплатно — но хаос", "Двойные брони, потерянная история", "Нет контроля кассы и отчётов"] },
         { title: "Российские / западные PMS", sub: "Bnovo, TravelLine, Cloudbeds", points: ["От 2 000 ₽ до $100+/мес", "Нет UZS, нет PayMe / Click / Humo", "Нет узбекского языка", "Поддержка не здесь"] },
-        { title: "Natus", sub: "создан в Ташкенте", points: ["Интерфейс RU / UZ", "Мультикасса под местные оплаты", "Telegram-отчёты", "От 299 000 сум/мес"] },
+        { title: "Natus", sub: "создан в Ташкенте", points: ["Интерфейс RU / UZ", "Мультикасса под местные оплаты", "Telegram-отчёты", `От ${PRICES.start} сум/мес`] },
       ],
     },
     s7: {
       label: "Бизнес-модель", heading: "SaaS-подписка", featured: "Популярный", period: "сум/мес",
       plans: [
-        { name: "Старт", price: "299 000", feat: "до 10 номеров" },
-        { name: "Стандарт", price: "499 000", feat: "до 30 номеров" },
-        { name: "Про", price: "899 000", feat: "без лимитов" },
+        { name: "Старт", price: PRICES.start, feat: "до 10 номеров" },
+        { name: "Стандарт", price: PRICES.standard, feat: "до 30 номеров" },
+        { name: "Про", price: PRICES.pro, feat: "без лимитов" },
       ],
       note: "Первый месяц — бесплатно",
       mrr: "100 отелей ≈ 45 млн сум MRR. Потенциал рынка ~40 млрд сум/год.",
@@ -326,15 +329,15 @@ export const pitch = {
       cols: [
         { title: "Excel va daftar", sub: "aksariyat mehmonxonalar", points: ["Bepul — lekin xaos", "Ikki bron, yo'qolgan tarix", "Kassa nazorati va hisobotlar yo'q"] },
         { title: "Rossiya / G'arb PMS", sub: "Bnovo, TravelLine, Cloudbeds", points: ["2 000 ₽ dan $100+/oygacha", "UZS yo'q, PayMe / Click / Humo yo'q", "O'zbek tili yo'q", "Qo'llab-quvvatlash bu yerda emas"] },
-        { title: "Natus", sub: "Toshkentda yaratilgan", points: ["RU / UZ interfeys", "Mahalliy to'lovlar uchun multikassa", "Telegram-hisobotlar", "299 000 so'm/oydan"] },
+        { title: "Natus", sub: "Toshkentda yaratilgan", points: ["RU / UZ interfeys", "Mahalliy to'lovlar uchun multikassa", "Telegram-hisobotlar", `${PRICES.start} so'm/oydan`] },
       ],
     },
     s7: {
       label: "Biznes-model", heading: "SaaS-obuna", featured: "Ommabop", period: "so'm/oy",
       plans: [
-        { name: "Start", price: "299 000", feat: "10 tagacha xona" },
-        { name: "Standart", price: "499 000", feat: "30 tagacha xona" },
-        { name: "Pro", price: "899 000", feat: "cheklovlarsiz" },
+        { name: "Start", price: PRICES.start, feat: "10 tagacha xona" },
+        { name: "Standart", price: PRICES.standard, feat: "30 tagacha xona" },
+        { name: "Pro", price: PRICES.pro, feat: "cheklovlarsiz" },
       ],
       note: "Birinchi oy — bepul",
       mrr: "100 mehmonxona ≈ 45 mln so'm MRR. Bozor salohiyati ~40 mlrd so'm/yil.",

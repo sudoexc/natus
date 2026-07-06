@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight, ChevronLeft, LayoutDashboard, BedDouble,
-  Users, BarChart3, Wallet, FileText, CheckCircle2,
+  Users, BarChart3, Wallet, CheckCircle2,
   AlertTriangle, Zap, Shield, ArrowRight, MessageCircle,
   Minus, Target, MapPin, Globe, Rocket, UserPlus, ExternalLink,
 } from "lucide-react";
@@ -32,6 +32,7 @@ function SlideHeader({ label, heading, sub }: { label: string; heading: string; 
 }
 
 const cardStyle: React.CSSProperties = { background: "#0c0c0c", border: "1px solid #191919", borderRadius: 14 };
+const bannerStyle: React.CSSProperties = { padding: "18px 24px", background: "rgba(245,193,0,0.05)", border: "1px solid rgba(245,193,0,0.25)", borderRadius: 14 };
 
 // ─── LANG SWITCHER ────────────────────────────────────────────────────────────
 function LangBtn({ lang, current, set }: { lang: Lang; current: Lang; set: (l: Lang) => void }) {
@@ -137,7 +138,7 @@ function Slide4({ T }: { T: typeof pitch.ru }) {
         ))}
       </div>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.5 }}
-        style={{ display: "flex", alignItems: "center", gap: 12, padding: "18px 24px", background: "rgba(245,193,0,0.05)", border: "1px solid rgba(245,193,0,0.25)", borderRadius: 14 }}>
+        style={{ ...bannerStyle, display: "flex", alignItems: "center", gap: 12 }}>
         <Globe size={18} color="#F5C100" style={{ flexShrink: 0 }} />
         <span style={{ fontSize: 15, color: "#999", fontWeight: 600 }}>{T.s4.demo}</span>
       </motion.div>
@@ -160,7 +161,7 @@ function Slide5({ T }: { T: typeof pitch.ru }) {
         ))}
       </div>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.5 }}
-        style={{ padding: "18px 24px", background: "rgba(245,193,0,0.05)", border: "1px solid rgba(245,193,0,0.25)", borderRadius: 14, textAlign: "center" }}>
+        style={{ ...bannerStyle, textAlign: "center" }}>
         <span style={{ fontSize: "clamp(15px, 1.8vw, 18px)", color: "#bbb", fontWeight: 700 }}>{T.s5.conclusion}</span>
       </motion.div>
     </div>
@@ -232,7 +233,7 @@ function Slide7({ T }: { T: typeof pitch.ru }) {
         })}
       </div>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.5 }}
-        style={{ padding: "18px 24px", background: "rgba(245,193,0,0.05)", border: "1px solid rgba(245,193,0,0.25)", borderRadius: 14, textAlign: "center" }}>
+        style={{ ...bannerStyle, textAlign: "center" }}>
         <span style={{ fontSize: "clamp(15px, 1.8vw, 18px)", color: "#bbb", fontWeight: 700 }}>{T.s7.mrr}</span>
       </motion.div>
     </div>
@@ -345,7 +346,7 @@ function Slide11({ T }: { T: typeof pitch.ru }) {
         ))}
       </div>
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.55, duration: 0.5 }}
-        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, padding: "20px 24px", background: "rgba(245,193,0,0.05)", border: "1px solid rgba(245,193,0,0.25)", borderRadius: 14 }}>
+        style={{ ...bannerStyle, display: "flex", alignItems: "center", justifyContent: "center", gap: 18, padding: "20px 24px" }}>
         <Rocket size={22} color="#F5C100" />
         <span style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 900, color: "#F5C100", letterSpacing: "-0.03em" }}>{T.s11.goalValue}</span>
         <span style={{ fontSize: "clamp(14px, 1.8vw, 17px)", color: "#999", fontWeight: 600 }}>{T.s11.goalLabel}</span>

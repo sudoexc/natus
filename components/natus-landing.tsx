@@ -11,10 +11,10 @@ import {
 import { landing, type Lang } from "@/lib/i18n";
 
 // ── CONFIG ── правь тут ──────────────────────────────────────────
+const APP_URL = "https://app.natus.uz";
 const CONFIG = {
-  appUrl: "https://app.natus.uz",            // TODO: реальный URL после деплоя
-  registerUrl: "https://app.natus.uz/register",
-  demoUrl: "https://app.natus.uz/login",     // TODO: demo-аккаунт
+  registerUrl: `${APP_URL}/register`,
+  demoUrl: `${APP_URL}/login`,               // TODO: отдельный demo-аккаунт
   telegram: "https://t.me/sqd_dev",
 };
 
