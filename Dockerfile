@@ -5,10 +5,13 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+# standalone: только server.js + минимальные node_modules, без dev-тулчейна
 FROM node:22-alpine
 WORKDIR /app
-ENV NODE_ENV=production
-COPY --from=build /app ./
+ENV NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+COPY --from=build /app/public ./public
 USER node
 EXPOSE 3000
-CMD ["npx", "next", "start", "-p", "3000"]
+CMD ["node", "server.js"]
