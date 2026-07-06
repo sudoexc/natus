@@ -193,7 +193,7 @@ export const pitch = {
     },
     s4: {
       label: "Traction", heading: "Не идея, а работающий продукт",
-      sub: "Пилот: TAHT HOTEL — Ташкент, отель фаундера",
+      sub: "Первый клиент: TAHT HOTEL — Ташкент, 8 номеров",
       stats: [
         { value: "6 месяцев", label: "в системе" },
         { value: "350+", label: "заездов проведено" },
@@ -250,7 +250,7 @@ export const pitch = {
     s10: {
       label: "Команда", heading: "Продукт построен отельером",
       members: [
-        { name: "Javohir", role: "Фаундер", desc: "Владелец действующего отеля TAHT HOTEL (Ташкент) и разработчик. Продукт вырос из собственной операционной боли — и полгода работает на собственном отеле.", hiring: false },
+        { name: "Javohir", role: "Фаундер", desc: "Фаундер и разработчик. Продукт построен в плотной связке с первым клиентом — отелем TAHT HOTEL (Ташкент): полгода ежедневной работы системы в реальной операционке, от кассы до закрытия месяца.", hiring: false },
         { name: "Hiring", role: "Sales", desc: "Открыта позиция: первый сейлз для прямых продаж отелям.", hiring: true },
       ],
     },
@@ -302,7 +302,7 @@ export const pitch = {
     },
     s4: {
       label: "Traction", heading: "G'oya emas — ishlayotgan mahsulot",
-      sub: "Pilot: TAHT HOTEL — Toshkent, faunder mehmonxonasi",
+      sub: "Birinchi mijoz: TAHT HOTEL — Toshkent, 8 xona",
       stats: [
         { value: "6 oy", label: "tizimda ishlamoqda" },
         { value: "350+", label: "chek-in o'tkazildi" },
@@ -359,7 +359,7 @@ export const pitch = {
     s10: {
       label: "Jamoa", heading: "Mahsulotni mehmonxona egasi qurgan",
       members: [
-        { name: "Javohir", role: "Faunder", desc: "Faoliyat yuritayotgan TAHT HOTEL mehmonxonasi (Toshkent) egasi va dasturchi. Mahsulot o'z operatsion og'rig'idan o'sib chiqdi — va yarim yildan beri o'z mehmonxonasida ishlamoqda.", hiring: false },
+        { name: "Javohir", role: "Faunder", desc: "Faunder va dasturchi. Mahsulot birinchi mijoz — TAHT HOTEL (Toshkent) bilan yaqin hamkorlikda qurilgan: yarim yildan beri tizim real operatsiyalarda har kuni ishlamoqda — kassadan oy yopilishigacha.", hiring: false },
         { name: "Hiring", role: "Sales", desc: "Ochiq lavozim: mehmonxonalarga to'g'ridan-to'g'ri sotuvlar uchun birinchi seylz.", hiring: true },
       ],
     },
